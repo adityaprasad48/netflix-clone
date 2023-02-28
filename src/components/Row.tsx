@@ -1,7 +1,7 @@
 // @ts-ignore
 import movieTrailer from "movie-trailer";
 import React, { useEffect, useState } from "react";
-import Youtube, { Options } from "react-youtube";
+import YouTube, { YouTubeProps } from 'react-youtube';
 import styled from "styled-components";
 import axios from "../helper/axios";
 import { Movie } from "../helper/Types";
@@ -63,7 +63,7 @@ const Row = ({ title, fetchUrl, isLargeRow }: RowProps) => {
     fetchData();
   }, [fetchUrl]);
 
-  const opts: Options = {
+  const opts: YouTubeProps['opts'] = {
     height: "390",
     width: "100%",
     playerVars: {
@@ -103,7 +103,7 @@ const Row = ({ title, fetchUrl, isLargeRow }: RowProps) => {
           />
         ))}
       </PosterContainer>
-      {trailerUrl && <Youtube videoId={trailerUrl} opts={opts} />}
+      {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
     </Wrapper>
   );
 };
